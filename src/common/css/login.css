@@ -1,0 +1,162 @@
+.login_wrap {
+  height: 100%;
+  width: 100vw;
+  background: url("../images/login_bg.jpg");
+  background-size: 100% 100%;
+}
+.login_content {
+  padding: 0 0.2rem;
+  text-align: center;
+}
+
+.login_content > h3 {
+  display: inline-block;
+  width: 1.13rem;
+  height: 0.4rem;
+  background: url("../images/login_logo.png");
+  background-size: 100% auto;
+  margin: 0.8rem auto;
+  color: transparent;
+}
+
+.box_wrap {
+  width: 100%;
+  height: 3.6rem;
+}
+.box {
+  position: relative;
+  padding: 0 0.35rem;
+}
+
+/* login_box */
+.login_head > img {
+  width: 0.61rem;
+}
+.login_head > figcaption {
+  font: bold 0.16rem/0.4rem fzlt;
+}
+
+.login_form input {
+  width: 100%;
+  margin-top: 0.1rem;
+  text-indent: 0.24rem;
+  background: transparent;
+  border-bottom: 1px solid #c1c8cb;
+  color: #c1c8cb;
+  font: 0.15rem/0.3rem pingfang;
+}
+.login_form > p::before {
+  position: absolute;
+  margin-top: 0.15rem;
+  color: #c1c8cb;
+}
+.login_form p:nth-child(3) {
+  text-align: left;
+}
+.login_form .verifycode {
+  width: 14ex;
+}
+.login_form .verify {
+  height: 0.34rem;
+  padding-left: 0.1rem;
+  padding-top: 0.05rem;
+}
+.login_form .form_btn {
+  border: none;
+  width: 1.2rem;
+  height: 0.35rem;
+  margin-top: 0.1rem;
+  background: url("../images/btn_bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #eee;
+}
+.login_form > .login_tips {
+  font: 0.15rem/0.4rem pingfang;
+  color: #666666;
+}
+.login_form > .login_tips > span {
+  color: #e15671;
+}
+.login_form input:focus {
+  color: #e15671;
+  border-color: #e15671;
+}
+
+/* register */
+
+.register_head > img {
+  width: 0.61rem;
+}
+.register_head > figcaption {
+  font: bold 0.16rem/0.4rem fzlt;
+}
+
+.register_form input {
+  width: 100%;
+  margin-top: 0.1rem;
+  text-indent: 0.24rem;
+  background: transparent;
+  border-bottom: 1px solid #c1c8cb;
+  color: #c1c8cb;
+  font: 0.15rem/0.3rem pingfang;
+}
+.register_form > p::before {
+  position: absolute;
+  margin-top: 0.15rem;
+  color: #c1c8cb;
+}
+.register_form p:nth-child(4) {
+  text-align: left;
+}
+.register_form .verifycode {
+  width: 14ex;
+}
+.register_form .verify {
+  height: 0.34rem;
+  padding-left: 0.1rem;
+  padding-top: 0.05rem;
+}
+.register_form .form_btn {
+  border: none;
+  width: 1.2rem;
+  height: 0.35rem;
+  margin-top: 0.1rem;
+  background: url("../images/btn_bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #eee;
+}
+.register_form > .register_tips {
+  font: 0.15rem/0.4rem pingfang;
+  color: #666666;
+}
+.register_form > .register_tips > span {
+  color: #e15671;
+}
+.register_form input:focus {
+  color: #e15671;
+  border-color: #e15671;
+}
+
+/* 动效 */
+.register_box,
+.login_box {
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 0.3rem;
+  backface-visibility: hidden;
+}
+.register_box {
+  transform: rotateY(180deg);
+}
+.box {
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100%;
+  background-color: white;
+  transition: transform 0.5s;
+}
