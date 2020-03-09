@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Frame from "../../common/component/frame";
 import LoginBox from "./login";
 import RegisterBox from "./register";
+import Alert from "../../common/component/alert";
 
 import "../../common/css/login.css";
 
@@ -9,7 +10,6 @@ function Login() {
   const [isLogin, setIsLogin] = useState(false);
   function changeLogin() {
     setIsLogin(!isLogin);
-    console.log(111);
   }
 
   return (

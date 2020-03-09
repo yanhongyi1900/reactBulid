@@ -2,23 +2,27 @@ import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useBack } from "../hooks";
 
+import isLogin from "../../store/actions/isLogin";
+import { connect } from "react-redux";
+
 function Header(props) {
   const {
     changeShow,
     hiddenMenu,
     location: { pathname },
-    history
+    history,
+    dispatch
   } = props;
 
+  useEffect(_ => {
+    isLogin(dispatch)();
+  });
   const back = useBack(history);
 
-  useEffect(_ => {
-    console.log(history);
-  });
   return (
     <div className="header">
       <div className="header_left">
-        {pathname == "/login" ? (
+        {pathname === "/login" ? (
           <span className="iconfont icon-back" onClick={back}></span>
         ) : (
           <span className="iconfont icon-hycaidan" onClick={changeShow}></span>
@@ -33,7 +37,7 @@ function Header(props) {
         <h1 className="clip">miaov.com</h1>
       </div>
       <div className="header_right" onClick={hiddenMenu}>
-        {pathname == "/login" ? (
+        {pathname === "/login" ? (
           ""
         ) : (
           <Link to="/login">
@@ -49,4 +53,6 @@ function Header(props) {
   );
 }
 
-export default withRouter(Header);
+export default connect(state => {
+  return state
+})(withRouter(Header));

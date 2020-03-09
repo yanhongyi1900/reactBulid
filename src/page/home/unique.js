@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Unique() {
+export default function Unique(props) {
   return (
     <div className="unique_wrap">
       <div className="unique_content">

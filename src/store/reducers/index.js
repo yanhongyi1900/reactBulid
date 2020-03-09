@@ -1,5 +1,4 @@
-function reducers(state = {}, action) {
-  return {
-      
-  };
-}
+import getUser from "./login";
+export default {
+  getUser
+};

@@ -11,6 +11,7 @@ export default function Works() {
             <img
               src="https://data.miaov.com/Uploads/article/icon/icon-1.jpg"
               className="work_a"
+              alt=""
             />
             <p>
               <span className="wrork_txt">
@@ -27,7 +28,7 @@ export default function Works() {
         </li>
       </ul>
       <p className="more">
-        <a className="">没有新的数据了</a>
+        <span>没有新的数据了</span>
       </p>
     </div>
   );

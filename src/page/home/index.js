@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import "../../common/css/home.css";
 
 import Frame from "../../common/component/frame";
@@ -9,6 +9,8 @@ import Vip from "./vip";
 import Unique from "./unique";
 import Works from "./works";
 
+// 网络请求
+
 // 静态banner图片
 const imgData = [
   require("../../common/images/bannerImg/img1.png"),
@@ -17,6 +19,8 @@ const imgData = [
 ];
 
 function Home(props) {
+  const { dispatch } = props;
+  useEffect(_ => {}, [dispatch]);
   return (
     <Frame>
       <div>
@@ -37,4 +41,6 @@ function Home(props) {
   );
 }
 
-export default withRouter(Home);
+export default connect(state => {
+  return state;
+})(Home);

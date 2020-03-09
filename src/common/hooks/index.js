@@ -12,4 +12,11 @@ function useBack(history) {
   };
 }
 
-export { useInnerHeight, useBack };
+function useGetVerify() {
+  return function(el) {
+    let time = new Date().getTime();
+    el.src = `/miaov/user/verify?${time}`;
+  };
+}
+
+export { useInnerHeight, useBack, useGetVerify };
