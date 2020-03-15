@@ -1,0 +1,87 @@
+/* course */
+.course_main_wrap {
+  padding: 0 0.1rem;
+  background: url("../images/class_bg.jpg");
+}
+.course_main_wrap > .course_title {
+  padding: 0.2rem 0;
+  text-align: center;
+}
+.course_main_wrap .course_logo {
+  display: inline-block;
+  height: 0.38rem;
+  width: 1.42rem;
+  background: url("../images/course_title.png");
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+/* plan */
+.plan_wrap table {
+  width: 100%;
+  text-align: center;
+  font: 0.14rem/0.34rem pingfang;
+}
+.plan_wrap thead {
+  background-color: rgba(206, 115, 175, 0.5);
+  color: white;
+}
+.plan_wrap tbody {
+  background-color: white;
+}
+.plan_wrap tbody td {
+  border: 2px solid #ce73af;
+  min-width: 0.6rem;
+}
+
+/* more */
+.course_more {
+  text-align: center;
+  font: 0.14rem/0.5rem pingfang;
+  color: white;
+}
+.course_more a {
+  background-color: white;
+  padding: 0.04rem 0.1rem;
+  border-radius: 0.18rem;
+  color: #2f88cd;
+}
+
+footer {
+  background-color: #323436;
+  padding: 0.2rem 0.2rem 0;
+  box-sizing: border-box;
+}
+
+footer p {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font: 0.14rem/0.24rem pingfang;
+}
+footer p > span::before {
+  margin-right: 0.04rem;
+}
+
+footer nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+footer nav a {
+  font: 0.14rem pingfang;
+  padding: 0 0.06rem;
+  margin: 0.06rem 0;
+  color: #ccc;
+  border-left: 1px solid #ccc;
+}
+footer nav a:first-child,
+footer nav a:nth-child(5) {
+  border-left: none;
+}
+
+footer p:last-child {
+  font: 0.12rem/0.4rem pingfang;
+  color: #868b8d;
+}

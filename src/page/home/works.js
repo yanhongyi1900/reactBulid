@@ -1,35 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function Works() {
+function Works(props) {
+  let {
+    works: { data, loading, loadend }
+  } = props;
+
   return (
     <div className="works">
       <h3>学员作品</h3>
       <ul className="works_list">
-        <li>
-          <Link to="/login">
-            <img
-              src="https://data.miaov.com/Uploads/article/icon/icon-1.jpg"
-              className="work_a"
-              alt=""
-            />
-            <p>
-              <span className="wrork_txt">
-                <strong>
-                  学员作品感受正统的前端开发课程体系、体验超值的海量实战案例，凝聚妙味全体讲师知识精华，尽在妙味VIP！
-                </strong>
-                <span>
-                  <em className="iconfont icon-liuyan">34</em>
-                  <em className="iconfont icon-tuijian1">7</em>
-                </span>
-              </span>
-            </p>
-          </Link>
-        </li>
+        {data.map((item, index) => {
+          return (
+            <li key={index}>
+              <Link to={"/work/" + item.id}>
+                <img src={item.icon} className="work_a" alt="" />
+                <p>
+                  <span className="wrork_txt">
+                    <strong>{item.title}</strong>
+                    <span>
+                      <em className="iconfont icon-liuyan">{item.message}</em>
+                      <em className="iconfont icon-tuijian1">{item.good}</em>
+                    </span>
+                  </span>
+                </p>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <p className="more">
-        <span>没有新的数据了</span>
+        <span>
+          {loadend
+            ? "没有新的数据了,不要再拉我了"
+            : loading
+            ? "正在请求中...不要着急"
+            : "下拉可以获取更多"}
+        </span>
       </p>
     </div>
   );
 }
+
+export default connect(state => {
+  return state;
+})(Works);

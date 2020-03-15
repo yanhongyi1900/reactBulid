@@ -1,15 +1,17 @@
 import React, { useRef, useEffect } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import register from "../../store/actions/register";
+
 import { useGetVerify } from "../../common/hooks/index";
 
 function RegisterBox(props) {
-  const { changeLogin } = props;
+  const { changeLogin, dispatch } = props;
   const userEl = useRef(null);
   const pwdEl = useRef(null);
   const rpwdEl = useRef(null);
   const verify = useRef(null);
   const verifyEl = useRef(null);
-
   const getVerify = useGetVerify();
 
   // 注册
@@ -20,8 +22,12 @@ function RegisterBox(props) {
       password: pwdEl.current.value,
       repassword: rpwdEl.current.value
     };
-    register(info).then(res => {
+    register(dispatch)(info).then(res => {
       console.log(res);
+      alert(res.msg);
+      if (res.code === 0) {
+        changeLogin();
+      }
     });
   }
 
@@ -97,4 +103,6 @@ function RegisterBox(props) {
   );
 }
 
-export default RegisterBox;
+export default connect(state => {
+  return state;
+})(withRouter(RegisterBox));

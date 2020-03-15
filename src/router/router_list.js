@@ -32,7 +32,7 @@ const routerList = [
   },
   {
     name: "work",
-    path: "/work:id",
+    path: "/work/:id",
     exact: true,
     render: props => <Work {...props} />
   }

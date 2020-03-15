@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import login from "../../store/actions/login";
 import { useGetVerify } from "../../common/hooks";
 
 function LoginBox(props) {
-  const { changeLogin, dispatch } = props;
+  const { changeLogin, dispatch, history, setShow, setData } = props;
   const verify = useRef(null);
   const verifyEl = useRef(null);
   const userEl = useRef(null);
@@ -19,7 +20,10 @@ function LoginBox(props) {
     };
     login(dispatch)(loginInfo).then(res => {
       if (res.code !== 0) {
-        alert(res.msg);
+        setShow(true);
+        setData(res);
+      } else {
+        history.goBack();
       }
     });
   }
@@ -85,4 +89,4 @@ function LoginBox(props) {
 
 export default connect(state => {
   return state;
-})(LoginBox);
+})(withRouter(LoginBox));

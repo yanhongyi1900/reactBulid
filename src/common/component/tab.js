@@ -35,6 +35,7 @@ function Tab(props) {
     });
     // 滚动结束后创建一个定时器
     slide.on("scrollEnd", toNextPage);
+    slide.on("touchEnd", toNextPage);
     // 加载页面自动开启一个定时器
     function toNextPage() {
       clearTimeout(timer);
@@ -43,6 +44,11 @@ function Tab(props) {
       }, 2000);
     }
     toNextPage();
+
+    return function() {
+      slide = null;
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

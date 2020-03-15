@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "../../common/css/home.css";
 
@@ -8,8 +8,7 @@ import Course from "./course";
 import Vip from "./vip";
 import Unique from "./unique";
 import Works from "./works";
-
-// 网络请求
+import getWorks from "../../store/actions/getWorks";
 
 // 静态banner图片
 const imgData = [
@@ -20,24 +19,29 @@ const imgData = [
 
 function Home(props) {
   const { dispatch } = props;
-  useEffect(_ => {}, [dispatch]);
+  function getMore() {
+    return dispatch(getWorks(dispatch));
+  }
+
   return (
-    <Frame>
-      <div>
-        <Tab
-          data={imgData}
-          render={(data, index) => {
-            return <img src={data} alt={index} />;
-          }}
-        />
-        <section className="main">
-          <Course />
-          <Vip />
-          <Unique />
-          <Works />
-        </section>
-      </div>
-    </Frame>
+    <div className="main_wrap_2">
+      <Frame getMore={getMore} isScroll={false}>
+        <div>
+          <Tab
+            data={imgData}
+            render={(data, index) => {
+              return <img src={data} alt={index} />;
+            }}
+          />
+          <section className="main">
+            <Course />
+            <Vip />
+            <Unique />
+            <Works />
+          </section>
+        </div>
+      </Frame>
+    </div>
   );
 }
 

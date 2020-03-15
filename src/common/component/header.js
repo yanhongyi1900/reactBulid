@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { useBack } from "../hooks";
-
 import isLogin from "../../store/actions/isLogin";
+import logout from "../../store/actions/logout";
 import { connect } from "react-redux";
 
 function Header(props) {
@@ -13,9 +13,21 @@ function Header(props) {
     history,
     dispatch
   } = props;
+  const [userName, setUserName] = useState("");
+  const logoutEl = useRef(null);
+  const [menuShow, setMenuShow] = useState(false);
+  function toLogout() {
+    logout(dispatch)().then(res => {
+      alert(res.msg);
+      setUserName("");
+      setMenuShow(false);
+    });
+  }
 
   useEffect(_ => {
-    isLogin(dispatch)();
+    isLogin(dispatch)().then(res => {
+      setUserName(res.data.username);
+    });
   });
   const back = useBack(history);
 
@@ -40,19 +52,33 @@ function Header(props) {
         {pathname === "/login" ? (
           ""
         ) : (
-          <Link to="/login">
-            <img
-              className="header_login"
-              src={require("../images/login.png")}
-              alt="login"
-            />
+          <Link
+            to={userName ? "" : "/login"}
+            onTouchStart={_ => {
+              // userName ? setMenuShow(!menuShow) : "";
+              if (userName) {
+                setMenuShow(!menuShow);
+              }
+            }}
+          >
+            <span
+              className={`iconfont icon-denglu ${userName ? "useractive" : ""}`}
+            ></span>
           </Link>
         )}
+      </div>
+      <div
+        ref={logoutEl}
+        className="logout"
+        style={{ display: menuShow ? "block" : "" }}
+        onTouchStart={toLogout}
+      >
+        <span>登出</span>
       </div>
     </div>
   );
 }
 
 export default connect(state => {
-  return state
+  return state;
 })(withRouter(Header));
