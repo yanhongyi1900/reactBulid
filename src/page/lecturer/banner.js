@@ -3,40 +3,36 @@ import { connect } from "react-redux";
 import Tab from "../../common/component/tab";
 
 function Banner(props) {
-  let { newData } = props;
+  let { newData, setSendData, setShow } = props;
   return (
-    <div className="lecturers_banner_wrap">
-      <h3>妙味团队</h3>
-      {newData.length < 1 ? (
-        ""
-      ) : (
-        <Tab
-          data={newData}
-          render={data => {
-            return (
-              <ul className="banner_page">
-                {data.map(item => {
-                  return (
-                    <li
-                      key={item.title}
-                      onTouchStart={e => {
-                        console.log(111);
-                      }}
-                      onTouchEnd={e => {}}
-                    >
-                      <img alt="" src={item.icon} />
-                      <div>
-                        <span>{item.title}</span>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            );
-          }}
-        ></Tab>
-      )}
-    </div>
+    <Tab
+      data={newData}
+      render={data => {
+        return (
+          <ul className="banner_page">
+            {data.map(item => {
+              return (
+                <li
+                  key={item.id}
+                  onTouchStart={e => {
+                    console.log(11111);
+                  }}
+                  onTouchEnd={e => {
+                    setShow(true);
+                    setSendData(item);
+                  }}
+                >
+                  <img alt="" src={item.icon} />
+                  <div>
+                    <span>{item.title}</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        );
+      }}
+    ></Tab>
   );
 }
 export default connect(state => {

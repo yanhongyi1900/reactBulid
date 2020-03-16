@@ -16,7 +16,7 @@ function Login() {
 
   return (
     <div className="main_wrap_2">
-      <Frame isScroll={true}>
+      <Frame>
         <div className="login_wrap">
           <div className="login_content">
             <h3>登录&注册</h3>

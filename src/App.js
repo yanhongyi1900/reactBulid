@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import IndexRouter from "./router";
 import Header from "./common/component/header";
 import Menu from "./common/component/menu";
@@ -7,6 +7,7 @@ import { useInnerHeight } from "./common/hooks";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
+  let tempEl = useRef(null);
   function hiddenMenu() {
     setIsShow(false);
   }

@@ -145,16 +145,14 @@
   border-bottom: 1px dashed #fff0cc;
 }
 .lecturer_alert_text_wrap {
-  font: 0.13rem/.2rem pingfang;
+  font: 0.13rem/0.2rem pingfang;
   margin-top: 0.2rem;
+  padding: 10px;
   height: 2.4rem;
-  padding: 0.1rem;
   box-sizing: border-box;
   text-align: left;
-  overflow: hidden;
 }
-/* .lecturer_alert_text {
+.lecturer_alert_text_main {
   height: 100%;
   overflow: hidden;
-  position: relative;
-} */
+}

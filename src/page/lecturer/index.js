@@ -34,18 +34,26 @@ function Lecturer(props) {
 
   return (
     <div className="main_wrap_2">
-      <Frame isScroll={true}>
+      <Frame>
         <div>
-          <Banner
-            setSendData={setSendData}
-            setShow={setShow}
-            newData={newData}
-          ></Banner>
+          <div className="lecturers_banner_wrap">
+            <h3>妙味团队</h3>
+            {newData.length > 0 ? (
+              <Banner
+                setSendData={setSendData}
+                setShow={setShow}
+                newData={newData}
+              ></Banner>
+            ) : (
+              ""
+            )}
+          </div>
           <Main></Main>
           <Footer></Footer>
         </div>
       </Frame>
-      <Alert sendData={sendData} show={show} setShow={setShow} />
+
+      {show ? <Alert sendData={sendData} setShow={setShow} /> : ""}
     </div>
   );
 }
